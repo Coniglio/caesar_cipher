@@ -3,6 +3,8 @@
 
 #include "caesar.h"
 
+#include <stdio.h>
+
 /*
  * シーザー暗号による暗号化を行った暗号文を返します
  *
@@ -12,31 +14,14 @@
  */
 char* caesar(int shiftNum, char* plaintext) {
     int i;
-    int j;
-    int k;
-    int tableLength = strlen(TABLE);
+    int characterCode;
     int length = strlen(plaintext);
-    int tableIndex = -1;
-    int index = -1;
-    char *ciphertext = (char *)malloc(sizeof(char) * (strlen(plaintext) + 1));
-    
+    char *ciphertext = (char *)malloc(sizeof(char) * (length + 1));
+
+    // 文字→数字化
     for (i = 0; i < length; i++) {
-        tableIndex = -1;
-        for (j = 0; j < tableLength; j++) {
-            if (plaintext[i] == TABLE[j]) {
-                tableIndex = j;
-                break;
-            }
-        }
-
-        if (tableIndex != -1) {
-            index = tableIndex;
-            for (k = 0; k < shiftNum; k++) {
-                index++;
-            }
-
-            ciphertext[i] = TABLE[index];
-        }
+        characterCode = plaintext[i];
+        ciphertext[i] = characterCode + shiftNum;
     }
 
     ciphertext[length] = 0;
