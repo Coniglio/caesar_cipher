@@ -4,6 +4,8 @@
 #include "caesar.h"
 
 int main(int argc, char *argv[]) {
+    char *ciphertext;
+
     // 入力チェック
     if (argc < 3) {
         printf("シフト回数と平文を指定してください。\n");
@@ -11,7 +13,7 @@ int main(int argc, char *argv[]) {
     }
 
     // シーザー暗号
-    char *ciphertext = caesar(atoi(argv[1]), argv[2]);
+    ciphertext = caesar(atoi(argv[1]), argv[2]);
     printf("%s\n", ciphertext);
 
     return 0;
