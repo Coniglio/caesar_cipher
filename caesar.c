@@ -40,6 +40,11 @@ char* caesar(int shiftNum, char* plaintext) {
     char *ciphertext = (char *)malloc(sizeof(char) * (length + 1));
 
     for (i = 0; i < length; i++) {
+        if (plaintext[i] < 'a' || plaintext[i] > 'z') {
+            // 暗号化対象はa-zA-Z
+            ciphertext[i] = plaintext[i];
+            continue;
+        }
         for (j = 0; j < ALPHABET_NUM; j++) {
             if (plaintext[i] == LARGE_CHAR_TABLE[j]) {
                 shiftIndex = (j + shiftNum) % ALPHABET_NUM;
