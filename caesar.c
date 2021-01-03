@@ -22,6 +22,7 @@ char* encryption(int shiftNum, char* plaintext) {
     for (i = 0; i < length; i++) {
         // a-z
         if (plaintext[i] >= 'a' && plaintext[i] <= 'z') {
+            // (b(98) - a(97) + 1) % 26 = c(99)
             shiftIndex = (plaintext[i] - 'a' + shiftNum) % ALPHABET_NUM;
             ciphertext[i] = 'a' + shiftIndex;
             continue;
@@ -29,6 +30,7 @@ char* encryption(int shiftNum, char* plaintext) {
 
         // A-Z
         if (plaintext[i] >= 'A' && plaintext[i] <= 'Z') {
+            // (Z(90) - A(65) + 3) % 26 = C(67)
             shiftIndex = (plaintext[i] - 'A' + shiftNum) % ALPHABET_NUM;
             ciphertext[i] = 'A' + shiftIndex;
             continue;
