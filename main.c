@@ -13,7 +13,7 @@ int main(int argc, char *argv[]) {
     }
 
     // シーザー暗号
-    ciphertext = caesar(atoi(argv[1]), argv[2]);
+    ciphertext = encryption(atoi(argv[1]), argv[2]);
     printf("%s\n", ciphertext);
 
     return 0;

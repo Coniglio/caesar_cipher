@@ -12,7 +12,7 @@ int clean_suite_success(void) {
 void test_shift4() {
     int shiftNum = 4;
     char plaintext[] = "test";
-    char *ciphertext = caesar(shiftNum, plaintext);
+    char *ciphertext = encryption(shiftNum, plaintext);
     CU_ASSERT_STRING_EQUAL(ciphertext, "xiwx");
 }
 

@@ -30,7 +30,7 @@ static const int ALPHABET_NUM = 26;
  * @param char* plaintext 平文
  * @return char* 暗号文
  */
-char* caesar(int shiftNum, char* plaintext) {
+char* encryption(int shiftNum, char* plaintext) {
     int i;
     int j;
     int k;
